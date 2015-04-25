@@ -14,3 +14,5 @@ Make sure you create the table `matchmaker` inside your eBot database with this 
 | matchid | int(11) | NO   |     | NULL    |                |
 +---------+---------+------+-----+---------+----------------+
 ```
+
+More information can be found in USAGE.md
