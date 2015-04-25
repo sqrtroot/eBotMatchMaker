@@ -22,7 +22,6 @@ class eBotController {
 		$this->challongeInfo = $chinf;
 		$this->eBotTeamSettings = $ebteam;
 		$this->eBotMatchSettings = $ebmatch;
-		echo "constructed \r\n";
 	}
 
 	public function connectMySQL() {
