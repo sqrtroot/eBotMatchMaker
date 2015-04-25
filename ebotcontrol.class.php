@@ -10,50 +10,40 @@ Contains functions for eBot to Challonge and Vice Versa
 
 
 class eBotController {
-	private $eBotMySQL = null;
-	private $challongeInfo = null;
-	private $eBotTeamSettings = array("teamflag"=>"AU", "seasonid"=>"1");
-	private $eBotMatchSettings = null;
+	public $eBotMySQL = null;
+	public $challongeInfo = null;
+	public $eBotTeamSettings = array("teamflag"=>"AU", "seasonid"=>"1");
+	public $eBotMatchSettings = null;
 
-	public $constructed = false;
-	private $MySQLcon = null;
+	public $MySQLcon = null;
 
 	public function __construct($emsql, $chinf, $ebteam, $ebmatch) {
 		$this->eBotMySQL = $emsql;
 		$this->challongeInfo = $chinf;
 		$this->eBotTeamSettings = $ebteam;
 		$this->eBotMatchSettings = $ebmatch;
-		$constructed = true;
+		echo "constructed \r\n";
 	}
 
 	public function connectMySQL() {
-		if(!$this->constructed) {return false;}	
-		$con = mysqli_connect($eBotMySQL['hostname'], $eBotMySQL['username'], $eBotMySQL['password'], $eBotMySQL['database']) or die(mysqli_error());
-		if(!$con) {return $con;}
+		$con = mysql_connect($this->eBotMySQL['hostname'], $this->eBotMySQL['username'], $this->eBotMySQL['password']) or die(mysql_error());
 		$this->MySQLcon = $con;
+		$db = mysql_select_db($this->eBotMySQL['database']);
 		return $con;
 	}
 
 	public function query($query) {
-		if(!$this->constructed) {return false;}
-		if(!$this->MySQLcon) {return false;}
-		$query = mysqli_query($MySQLcon, $query);
-		if(!$query) {return false;}
+		$query = mysql_query($query) or die(mysql_error());
 		return $query;
 	}
 
 	public function getAssoc($query) {
-		if(!$this->constructed) {return false;}
-		if(!$this->MySQLcon) {return false;}
-		$assoc = mysqli_fetch_assoc($query);
-		if(!$assoc) {return false;}
+		$assoc = mysql_fetch_assoc($query);
 		return $assoc;
 	}
 
 	public function getNumRows($query) {
-		if(!$this->constructed) {return false;}
-		if(!$this->MySQLcon) {return false;}
-		$numrow = mysqli_num_rows($query);
+		$numrow = mysql_num_rows($query);
 		return $numrow;
 	}
 
@@ -117,6 +107,7 @@ class eBotController {
 				}	
 			}
 		}
+		echo "===============================================\r\n";
 	}
 
 	public function updateJSON() {
@@ -145,5 +136,7 @@ class eBotController {
 		return $data;
 	}
 }
+
+?>
 
 ?>

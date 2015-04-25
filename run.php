@@ -2,10 +2,13 @@
 
 include('ebotcontrol.class.php');
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 /* Settings */
-$eBotMySQL = array("hostname"=>"localhost", "username"=>"root", "password"=>"YPxc67KL", "database"=>"ebot-mmtest");
+$eBotMySQL = array("hostname"=>"localhost", "username"=>"root", "password"=>"YPxc67KL", "database"=>"ebot2");
 $challongeInfo = array("apikey"=>"MbznfkMbRw61lPtsraQIkzf2fsqhv5mQveJsahuk", "tournamentid"=>"3k8drpj2");
-$eBotTeamSettings = array("teamflag"=>"AU", "seasonid"=>"1");
+$eBotTeamSettings = array("teamflag"=>"AU", "seasonid"=>"3");
 $eBotMatchSettings = array(
 	"maxround"=>15,
 	"rules"=>"esl5on5",
@@ -60,7 +63,6 @@ echo "=         updates every 30 seconds...         =\r\n";
 echo "===============================================\r\n";
 
 sleep(30);
-
 while(true) {
 	$ebot->createMatches($ebot->updateJSON());
 	sleep(30);
