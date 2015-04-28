@@ -38,7 +38,7 @@ $ebot->createTeams($ebot->updateJSON());
 echo "===============================================\r\n";
 echo "\r\n";
 echo "===============================================\r\n";
-echo "=        Adding all servers to eBot...        =\r\n"
+echo "=        Adding all servers to eBot...        =\r\n";
 
 $ebot->createServers($server_ips, $server_ports, $gotv_ports, $rcon_password, $hostname_prefix);
 
