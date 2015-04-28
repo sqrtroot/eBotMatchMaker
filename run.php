@@ -1,23 +1,10 @@
 <?php
 
 include('ebotcontrol.class.php');
+include('settings.php');
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
-/* Settings */
-$eBotMySQL = array("hostname"=>"localhost", "username"=>"root", "password"=>"YPxc67KL", "database"=>"ebot2");
-$challongeInfo = array("apikey"=>"MbznfkMbRw61lPtsraQIkzf2fsqhv5mQveJsahuk", "tournamentid"=>"3k8drpj2");
-$eBotTeamSettings = array("teamflag"=>"AU", "seasonid"=>"3");
-$eBotMatchSettings = array(
-	"maxround"=>15,
-	"rules"=>"esl5on5",
-	"overtime_startmoney"=>10000,
-	"overtime_mr"=>3,
-	"overtime"=>1,
-	"streamer"=>0,
-	"knife"=>1
-	);
 
 /* Variables - DO NOT CHANGE!! */
 
