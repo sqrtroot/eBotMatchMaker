@@ -42,12 +42,22 @@ You now need to connect to the MySQL database:
 $ebot->connectMySQL();
 ```
 
-Once you have connected to the database you can create your matches and teams:
+Once you have connected to the database you can create your matches and teams as well as add the servers:
 
 ```php
 $ebot->createTeams($ebot->updateJSON());
 
 $ebot->createMatches($ebot->updateJSON())
+
+// Settings for the servers
+$server_ips = array("192.168.1.1", "192.168.1.2");
+$server_ports = array("27015");
+$gotv_ports = array("27020");
+$rcon_password = "MyCoolPassword";
+$hostname_prefix = "Doesplay"; // Naming system for servers, will be named like "$prefix_$serverid_$portid" eg. "Doesplay_1_1"
+
+$ebot->createServers($server_ips, $server_ports, $gotv_ports, $rcon_password, $hostname_prefix);
+
 ```
 
 If you want to do your own queries there are commands built into eBotController that can also do this:
