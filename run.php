@@ -3,26 +3,9 @@
 include('ebotcontrol.class.php');
 include('settings.php');
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+/*error_reporting(E_ALL);
+ini_set('display_errors', 1);*/
 
-<<<<<<< HEAD
-=======
-/* Settings */
-$eBotMySQL = array("hostname"=>"localhost", "username"=>"root", "password"=>"", "database"=>"");
-$challongeInfo = array("apikey"=>"", "tournamentid"=>"");
-$eBotTeamSettings = array("teamflag"=>"AU", "seasonid"=>"3");
-$eBotMatchSettings = array(
-	"maxround"=>15,
-	"rules"=>"esl5on5",
-	"overtime_startmoney"=>10000,
-	"overtime_mr"=>3,
-	"overtime"=>1,
-	"streamer"=>0,
-	"knife"=>1
-	);
-
->>>>>>> origin/master
 /* Variables - DO NOT CHANGE!! */
 
 $MySQL = null;
@@ -55,6 +38,13 @@ $ebot->createTeams($ebot->updateJSON());
 echo "===============================================\r\n";
 echo "\r\n";
 echo "===============================================\r\n";
+echo "=        Adding all servers to eBot...        =\r\n"
+
+$ebot->createServers($server_ips, $server_ports, $gotv_ports, $rcon_password, $hostname_prefix);
+
+echo "===============================================\r\n";
+echo "\r\n";
+
 echo "=         Creating all matches now...         =\r\n";
 
 $ebot->createMatches($ebot->updateJSON());

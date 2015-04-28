@@ -15,4 +15,10 @@ $eBotMatchSettings = array(
 	"knife"=>1
 	);
 
+$server_ips = array("0.0.0.0", "0.0.0.1");
+$server_ports = array("27015", "27016");
+$gotv_ports = array("27020", "27021");
+$rcon_password = "";
+$hostname_prefix = "Doesplay";
+
 ?>
