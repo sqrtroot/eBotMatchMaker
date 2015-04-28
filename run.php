@@ -44,7 +44,7 @@ $ebot->createServers($server_ips, $server_ports, $gotv_ports, $rcon_password, $h
 
 echo "===============================================\r\n";
 echo "\r\n";
-
+echo "===============================================\r\n";
 echo "=         Creating all matches now...         =\r\n";
 
 $ebot->createMatches($ebot->updateJSON());

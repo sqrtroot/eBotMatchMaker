@@ -30,6 +30,7 @@ class eBotController {
 		$con = mysql_connect($this->eBotMySQL['hostname'], $this->eBotMySQL['username'], $this->eBotMySQL['password']) or die(mysql_error());
 		$this->MySQLcon = $con;
 		$db = mysql_select_db($this->eBotMySQL['database']);
+		$this->query("DELETE * FROM `matchmaker`");
 		return $con;
 	}
 
